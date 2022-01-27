@@ -33,7 +33,7 @@ function App() {
       <input className='search' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} />
       {typeof data.main === "undefined" ? (
         <div className='start'>
-        Welcome! Enter the city name to check the weather.
+        {data.cod === "404" ? "City not Found !!" : "Welcome! Enter the city name to check the weather !!"}
       </div>
         )
         :
