@@ -22,10 +22,11 @@
   color: white;
   font-size: 2rem;
   border: 2px solid white;
+  text-align: center;
 }
 .address{
   color: white;
-  margin-top: 4rem;
+  margin-top: 2rem;
   font-size: 2rem;
   text-shadow: 1px 1px rgba(255, 255, 255, 0.315);
   font-weight: 900;
@@ -36,23 +37,20 @@
 }
 
 .climate{
-  padding: 2rem;
   color: white;
-  font-size: 2rem;
-  border: 2px solid;
-  border-radius: 25px;
+  font-size: 4rem;
+  font-weight: 600;
   margin: 2rem;
   transition: ease 300ms;
   
 }
 .temp{
-  padding: 5.5rem;
   color: white;
   height: 4rem;
   font-size: 5rem;
   transition: ease 300ms;
   font-weight: 900;
-  border-bottom: 1px solid;
+  text-decoration: underline;
 }
 .date{
   color: white;
@@ -65,7 +63,7 @@
   margin: 2rem;
 }
 .min{
-  margin: 2rem;
+  margin: 1rem;
   border: 2px solid white;
   padding: 1rem;
   border-radius: 25rem;
