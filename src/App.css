@@ -75,13 +75,16 @@
   border: 2px solid skyblue;
   padding: 1rem;
   border-radius: 25rem;
+  transition: ease 300ms;
 }
 .max{
   color: rgb(183, 220, 20);
   margin: 1rem;
-  border: 2px solid crimson;
+  border: 2px solid rgb(183, 220, 20);
   padding: 1rem;
   border-radius: 25rem;
+  transition: ease 300ms;
+
 }
 .start{
   text-align: center;
@@ -101,4 +104,12 @@
 .max{
   margin : 4rem;
 }
+}
+.min:hover{
+  background-color: skyblue;
+  color: black;
+}
+.max:hover{
+  background-color: rgb(183, 220, 20);
+  color: black;
 }
