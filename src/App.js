@@ -30,7 +30,7 @@ function App() {
     }
   return (
     <div className="App">
-      <input className='search' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} />
+      <input className='search' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city' label='enter the city' />
       {typeof data.main === "undefined" ? (
         <div className='start'>
         {data.cod === "404" ? "City not Found !!" : "Welcome! Enter the city name to check the weather !!"}
@@ -42,7 +42,7 @@ function App() {
           
         <div className='container'>
         <div className='address'>{data.name}, {data.sys.country}</div>
-      <div className='date'>{getCurrentDate("-")}</div>
+      <div className='date'>({getCurrentDate("-")})</div>
            <div className='card'>
            <div className='climate'>{data.weather[0].main}</div>
            <div className={data.main.temp > 10 ? "temp-warm" : "temp-cold"}>{data.main.temp}°C</div>
