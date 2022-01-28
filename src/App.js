@@ -43,9 +43,11 @@ function App() {
         <div className='container'>
         <div className='address'>{data.name}, {data.sys.country}</div>
       <div className='date'>{getCurrentDate("-")}</div>
-
+           <div className='card'>
            <div className='climate'>{data.weather[0].main}</div>
            <div className={data.main.temp > 10 ? "temp-warm" : "temp-cold"}>{data.main.temp}°C</div>
+           </div>
+           
            <div className='minmax'>
            <div className='min'>Min : {data.main.temp_min}°C</div>
            <div className='max'>Max : {data.main.temp_max}°C</div>
