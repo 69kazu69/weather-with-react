@@ -30,7 +30,7 @@ function App() {
     }
   return (
     <div className=" app  container text-center ">
-      <input className=' form-control bg-info shadow-lg my-5 ' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
+      <input className=' form-control bg-info shadow my-5 ' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
       <div className="weather  ">
       {typeof data.main === "undefined" ? (
         <div className='display-5 text-center '>
