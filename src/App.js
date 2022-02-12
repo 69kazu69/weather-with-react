@@ -29,10 +29,11 @@ function App() {
       }
     }
   return (
-    <div className="App">
-      <input className='search' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city' label='enter the city' />
+    <div className=" app  container text-center ">
+      <input className=' form-control bg-info shadow-lg my-5 w-60  ' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
+      <div className="weather ">
       {typeof data.main === "undefined" ? (
-        <div className='start'>
+        <div className='display-2 text-center'>
         {data.cod === "404" ? "City not Found !!" : "Welcome! Enter the city name to check the weather !!"}
       </div>
         )
@@ -40,21 +41,24 @@ function App() {
         (
 
           
-        <div className='container'>
-        <div className='address'>{data.name}, {data.sys.country}</div>
+        
+          <div className=' card text-white bg-info  text-center border border-info shadow-lg '>
+        <div className=' display-1 card-header w-100% mb-3 '>{data.name}, {data.sys.country}</div>
       <div className='date'>({getCurrentDate("-")})</div>
-           <div className='card'>
-           <div className='climate'>{data.weather[0].main}</div>
+           <div className='card-title display-3'>
+           <div className='climate my-4'>{data.weather[0].main}</div>
            <div className={data.main.temp > 10 ? "temp-warm" : "temp-cold"}>{data.main.temp}°C</div>
            </div>
            
-           <div className='minmax'>
-           <div className='min'>Min : {data.main.temp_min}°C</div>
-           <div className='max'>Max : {data.main.temp_max}°C</div>
+           <div className='card-footer d-flex  justify-content-evenly '>
+           <div className='min '>Min : {data.main.temp_min}°C    </div>
+           <div className='max '>Max : {data.main.temp_max}°C</div>
            </div>
       </div>
       )}
     </div>
+    </div>
+
   );
 }
 
