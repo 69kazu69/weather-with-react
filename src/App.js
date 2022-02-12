@@ -30,10 +30,10 @@ function App() {
     }
   return (
     <div className=" app  container text-center ">
-      <input className=' form-control bg-info shadow-lg my-5 w-60  ' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
-      <div className="weather ">
+      <input className=' form-control bg-info shadow-lg my-5 ' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
+      <div className="weather  ">
       {typeof data.main === "undefined" ? (
-        <div className='display-2 text-center'>
+        <div className='display-5 text-center '>
         {data.cod === "404" ? "City not Found !!" : "Welcome! Enter the city name to check the weather !!"}
       </div>
         )
@@ -42,7 +42,7 @@ function App() {
 
           
         
-          <div className=' card text-white bg-info  text-center border border-info shadow-lg '>
+          <div className=' card text-white bg-info  text-center   shadow-lg '>
         <div className=' display-1 card-header w-100% mb-3 '>{data.name}, {data.sys.country}</div>
       <div className='date'>({getCurrentDate("-")})</div>
            <div className='card-title display-3'>
