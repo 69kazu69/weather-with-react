@@ -1,4 +1,6 @@
-
+*{
+    background: rgb(21, 16, 29);
+}
 .app{
     width: 100%;
     height: 100vh;box-sizing: border-box;
@@ -24,7 +26,4 @@
     width: 80%;
     height: auto;
     
-}
-input:focus{
-    outline:none;
 }

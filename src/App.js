@@ -30,10 +30,10 @@ function App() {
     }
   return (
     <div className=" app  container text-center ">
-      <input className=' form-control bg-info shadow my-5 ' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
+      <input className=' form-control m-5' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
       <div className="weather  ">
       {typeof data.main === "undefined" ? (
-        <div className='display-5 text-center '>
+        <div className='display-5 text-center text-light '>
         {data.cod === "404" ? "City not Found !!" : "Welcome! Enter the city name to check the weather !!"}
       </div>
         )
@@ -42,17 +42,17 @@ function App() {
 
           
         
-          <div className=' card text-white bg-info  text-center   shadow-lg '>
+          <div className=' w-100 md-h-75  card text-white bg-primary border border-3 text-center   shadow-lg '>
         <div className=' display-1 card-header w-100% mb-3 '>{data.name}, {data.sys.country}</div>
-      <div className='date'>({getCurrentDate("-")})</div>
-           <div className='card-title display-3'>
-           <div className='climate my-4'>{data.weather[0].main}</div>
-           <div className={data.main.temp > 10 ? "temp-warm" : "temp-cold"}>{data.main.temp}°C</div>
+      <div className='date bg-primary h5'>({getCurrentDate("-")})</div>
+           <div className='card-title d-flex justify-content-evenly display-1 bg-primary  '>
+           <div className='climate  bg-primary mb-3 '><strong class="bg-primary">{data.weather[0].main}</strong></div>
+           <div className="bg-primary"><strong class="bg-primary">{data.main.temp}°C</strong></div>
            </div>
            
-           <div className='card-footer d-flex  justify-content-evenly '>
-           <div className='min '>Min : {data.main.temp_min}°C    </div>
-           <div className='max '>Max : {data.main.temp_max}°C</div>
+           <div className='card-footer d-flex  justify-content-evenly bg-primary mt-5 '>
+           <div className='min bg-primary '>Min : {data.main.temp_min}°C    </div>
+           <div className='max bg-primary '>Max : {data.main.temp_max}°C</div>
            </div>
       </div>
       )}
