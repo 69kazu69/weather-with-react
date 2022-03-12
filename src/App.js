@@ -1,4 +1,5 @@
-
+import {Flex, Heading, Text, Box, Input, Divider} from "@chakra-ui/react"
+import {motion} from "framer-motion"
 import './App.css';
 import { useState } from 'react';
 
@@ -6,6 +7,8 @@ function App() {
 
   const [city, setCity] = useState("")
   const [data, setData] = useState({})
+  let MBox = motion(Box)
+  let MFlex = motion(Flex)
   
   const API = "acce0dd877a50f0ea34d58a35fa44d2f"
 
@@ -29,35 +32,56 @@ function App() {
       }
     }
   return (
-    <div className=" app  container text-center ">
-      <input className=' form-control m-5' value = {city} onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
-      <div className="weather  ">
+    <Flex direction="column" justify="space-between" align="center" h= "100vh" bg="teal900" >
+      <Text fontSize="3xl" as="i" color="white" align="center" w="100vw">
+        Weather Search
+        <Divider w="100vw" />
+
+      </Text>
+      <Flex mb="20vh" direction="column"  align="center" h = "450px" w="340px" boxShadow = "dark-lg" borderRadius=".5rem" bg="gray.900"
+       
+      >
+      <Input  value = {city} w="250px"  mb="10" mt="10" color="white" onChange = {(e) => {setCity(e.target.value)}} onKeyPress={keyHandler} placeholder='Enter the city...' label='enter the city' />
+      <Flex bg="gray.900">
       {typeof data.main === "undefined" ? (
-        <div className='display-5 text-center text-light '>
+        <Text as = "i" color = "white" fontSize = "xl" align="center" bg="gray.900" justify-self="center" w="300px">
         {data.cod === "404" ? "City not Found !!" : "Welcome! Enter the city name to check the weather !!"}
-      </div>
+      </Text>
         )
         :
         (
 
           
         
-          <div className=' w-100 md-h-75  card text-white bg-primary border border-3 text-center   shadow-lg '>
-        <div className=' display-1 card-header w-100% mb-3 '>{data.name}, {data.sys.country}</div>
-      <div className='date bg-primary h5'>({getCurrentDate("-")})</div>
-           <div className='card-title d-flex justify-content-evenly display-1 bg-primary  '>
-           <div className='climate  bg-primary mb-3 '><strong class="bg-primary">{data.weather[0].main}</strong></div>
-           <div className="bg-primary"><strong class="bg-primary">{data.main.temp}°C</strong></div>
-           </div>
+          <MBox  w="250px" align="center" bg="gray.900" color="white"
+          initial={{
+            opacity: 0,
+            scale: 0
+          }}
+          animate={{
+            opacity:1,
+            scale:1
+          }}
+          transition={{
+            duration: .5
+          }}>
+        <Heading bg="gray.900" pb="2" >{data.name}, {data.sys.country}</Heading>
+        <Divider mb="4" />
+      <Text bg="gray.900" mb="10">({getCurrentDate("-")})</Text>
+           <Flex  direction="column">
+           <Text bg="gray.900" fontSize="2xl">{data.weather[0].main}</Text>
+           <Text bg="gray.900">{data.main.temp}°C</Text>
+           </Flex>
            
-           <div className='card-footer d-flex  justify-content-evenly bg-primary mt-5 '>
-           <div className='min bg-primary '>Min : {data.main.temp_min}°C    </div>
-           <div className='max bg-primary '>Max : {data.main.temp_max}°C</div>
-           </div>
-      </div>
+           <Flex justify="space-between" bg="gray.900" pt="5">
+           <Text bg="gray.900">Min : {data.main.temp_min}°C</Text>
+           <Text bg="gray.900">Max : {data.main.temp_max}°C</Text>
+           </Flex>
+      </MBox>
       )}
-    </div>
-    </div>
+    </Flex>
+    </Flex>
+    </Flex>
 
   );
 }
